@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">SightSafe</string>
+    <string name="ini_login">Ini Login</string>
+    <string name="logintext">Welcome Back</string>
+    <string name="logintextsub">Sign in to access your account</string>
+    <string name="Tagline1">Protect Your Sight</string>
+    <string name="Tagline2">Detect With Insight</string>
+    <string name="HintEmail">Email</string>
+    <string name="HintPassword">Password</string>
+    <string name="LoginButton">Login</string>
+    <string name="new_member">New member?</string>
+    <string name="RegisterButton"> Register Now</string>
+    <string name="Logo">TODO</string>
+    <string name="NameRegister">Name</string>
+    <string name="Register">Login</string>
+    <string name="already_a_member">Already a member?</string>
+    <string name="log_in">Log In</string>
+
+
+</resources>
