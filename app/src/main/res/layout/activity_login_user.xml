@@ -91,7 +91,7 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextTextEmail"
+                    android:id="@+id/editTextEmail"
                     style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -112,8 +112,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="TextFields" />
 
-                <EditText
-                    android:id="@+id/editTextTextPassword"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextPassword"
                     style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -131,7 +131,7 @@
                     android:padding="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextTextEmail" />
+                    app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
                 <Button
                     android:id="@+id/Login"
@@ -147,7 +147,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
                     app:layout_constraintVertical_bias="0.372" />
 
                 <LinearLayout

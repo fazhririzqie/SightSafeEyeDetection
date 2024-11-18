@@ -90,8 +90,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <EditText
-                    android:id="@+id/NameRegister"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextName"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginStart="32dp"
@@ -99,7 +99,7 @@
                     android:layout_marginEnd="32dp"
                     android:autofillHints="Name"
                     android:background="@drawable/edit_text_background"
-                    android:drawableEnd="@drawable/baseline_account_box_24"
+                    android:drawableStart="@drawable/baseline_account_box_24"
                     android:drawablePadding="8dp"
                     android:drawableTint="#17b8ad"
                     android:ems="10"
@@ -110,8 +110,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
-                    android:id="@+id/EmailRegister"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextEmail"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginStart="32dp"
@@ -119,7 +119,7 @@
                     android:layout_marginEnd="32dp"
                     android:autofillHints="Email"
                     android:background="@drawable/edit_text_background"
-                    android:drawableEnd="@drawable/baseline_email_24"
+                    android:drawableStart="@drawable/baseline_email_24"
                     android:drawablePadding="8dp"
                     android:drawableTint="#17b8ad"
                     android:ems="10"
@@ -132,8 +132,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="TextFields" />
 
-                <EditText
-                    android:id="@+id/PasswordRegister"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextPassword"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginStart="32dp"
@@ -141,7 +141,7 @@
                     android:layout_marginEnd="32dp"
                     android:autofillHints="Password"
                     android:background="@drawable/edit_text_background"
-                    android:drawableEnd="@drawable/baseline_lock_24"
+                    android:drawableStart="@drawable/baseline_lock_24"
                     android:drawablePadding="8dp"
                     android:drawableTint="#17b8ad"
                     android:ems="10"
@@ -150,7 +150,7 @@
                     android:padding="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/EmailRegister" />
+                    app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
                 <Button
                     android:id="@+id/Login"
@@ -166,7 +166,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/PasswordRegister"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
                     app:layout_constraintVertical_bias="0.259" />
 
                 <LinearLayout
