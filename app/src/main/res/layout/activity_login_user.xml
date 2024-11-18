@@ -5,7 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#FFFFFF"
     tools:context="com.example.user.LoginUser">
 
 
@@ -91,8 +90,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <EditText
-                    android:id="@+id/editTextText"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextTextEmail"
+                    style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginStart="32dp"
@@ -100,7 +100,7 @@
                     android:layout_marginEnd="32dp"
                     android:autofillHints="Email"
                     android:background="@drawable/edit_text_background"
-                    android:drawableEnd="@drawable/baseline_email_24"
+                    android:drawableStart="@drawable/baseline_email_24"
                     android:drawablePadding="8dp"
                     android:drawableTint="#17b8ad"
                     android:ems="10"
@@ -109,10 +109,12 @@
                     android:padding="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TextFields" />
 
                 <EditText
                     android:id="@+id/editTextTextPassword"
+                    style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginStart="32dp"
@@ -120,7 +122,7 @@
                     android:layout_marginEnd="32dp"
                     android:autofillHints="Password"
                     android:background="@drawable/edit_text_background"
-                    android:drawableEnd="@drawable/baseline_lock_24"
+                    android:drawableStart="@drawable/baseline_lock_24"
                     android:drawablePadding="8dp"
                     android:drawableTint="#17b8ad"
                     android:ems="10"
@@ -129,7 +131,7 @@
                     android:padding="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+                    app:layout_constraintTop_toBottomOf="@+id/editTextTextEmail" />
 
                 <Button
                     android:id="@+id/Login"
