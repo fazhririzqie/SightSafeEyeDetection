@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -53,4 +54,7 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
 
     implementation ("com.google.android.material:material:1.12.0")
+
+    //firebase auth
+    implementation("com.google.firebase:firebase-auth:23.1.0")
 }

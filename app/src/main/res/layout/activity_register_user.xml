@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.LoginUser">
+    tools:context=".user.LoginUser">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,7 +29,9 @@
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_semibold"
             android:text="@string/Tagline1"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView7" />
@@ -38,7 +40,9 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_semibold"
             android:text="@string/Tagline2"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -55,7 +59,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="44dp"
-            android:text="@string/logintext"
+            android:fontFamily="@font/mulish_extrabold"
+            android:text="@string/registertext"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
@@ -67,7 +72,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="@string/logintextsub"
+            android:fontFamily="@font/mulish_light"
+            android:text="@string/registertextsub"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
@@ -91,31 +97,11 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextName"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="32dp"
-                    android:autofillHints="Name"
-                    android:background="@drawable/edit_text_background"
-                    android:drawableStart="@drawable/baseline_account_box_24"
-                    android:drawablePadding="8dp"
-                    android:drawableTint="#17b8ad"
-                    android:ems="10"
-                    android:hint="@string/NameRegister"
-                    android:inputType="text"
-                    android:padding="8dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editTextEmail"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="128dp"
+                    android:layout_marginTop="32dp"
                     android:layout_marginEnd="32dp"
                     android:autofillHints="Email"
                     android:background="@drawable/edit_text_background"
@@ -137,7 +123,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginStart="32dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="128dp"
                     android:layout_marginEnd="32dp"
                     android:autofillHints="Password"
                     android:background="@drawable/edit_text_background"
@@ -149,15 +135,66 @@
                     android:inputType="textPassword"
                     android:padding="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TextFields" />
+
+                <ImageView
+                    android:id="@+id/togglePasswordVisibility"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="40dp"
+                    android:clickable="true"
+                    android:contentDescription="@string/toggle_password_visibility"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_eye"
+                    app:layout_constraintBottom_toBottomOf="@id/editTextPassword"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/editTextPassword" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextConfirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:autofillHints="Password"
+                    android:background="@drawable/edit_text_background"
+                    android:drawableStart="@drawable/baseline_lock_24"
+                    android:drawablePadding="8dp"
+                    android:drawableTint="#17b8ad"
+                    android:ems="10"
+                    android:hint="@string/Confirm_Password"
+                    android:inputType="textPassword"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+
+                <ImageView
+                    android:id="@+id/toggleConfirmPasswordVisibility"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="40dp"
+                    android:src="@drawable/ic_eye"
+                    android:contentDescription="@string/toggle_password_visibility"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/editTextConfirmPassword"
+                    app:layout_constraintBottom_toBottomOf="@id/editTextConfirmPassword"
+                    android:padding="8dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
 
                 <Button
-                    android:id="@+id/Login"
+                    android:id="@+id/Register"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
-                    android:layout_marginStart="128dp"
-                    android:layout_marginEnd="128dp"
+                    android:layout_marginStart="64dp"
+                    android:layout_marginEnd="64dp"
                     android:backgroundTint="#17b8ad"
                     android:drawableTint="#FFFFFF"
                     android:text="@string/Register"
@@ -166,7 +203,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword"
                     app:layout_constraintVertical_bias="0.259" />
 
                 <LinearLayout
@@ -177,7 +214,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/Login">
+                    app:layout_constraintTop_toBottomOf="@+id/Register">
 
                     <TextView
                         android:id="@+id/textView5"

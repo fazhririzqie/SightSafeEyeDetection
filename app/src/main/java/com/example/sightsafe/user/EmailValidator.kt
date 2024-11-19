@@ -1,4 +1,4 @@
-package com.example.user
+package com.example.sightsafe.user
 
 import android.text.Editable
 import android.text.TextWatcher

@@ -1,11 +1,11 @@
-package com.example.user
+package com.example.sightsafe.user
 
 import android.text.Editable
 import android.text.TextWatcher
 import com.google.android.material.textfield.TextInputEditText
 
 object PasswordValidator {
-    private const val MAX_PASSWORD_LENGTH = 8
+    private const val MIN_PASSWORD_LENGTH = 8
 
     fun TextInputEditText.addPasswordValidation() {
         this.addTextChangedListener(object : TextWatcher {
@@ -13,8 +13,8 @@ object PasswordValidator {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val password = s.toString()
-                if (password.length > MAX_PASSWORD_LENGTH) {
-                    this@addPasswordValidation.error = "Password must be at most 8 characters"
+                if (password.length < MIN_PASSWORD_LENGTH) {
+                    this@addPasswordValidation.error = "Password less than 8 characters"
                 } else {
                     this@addPasswordValidation.error = null
                 }

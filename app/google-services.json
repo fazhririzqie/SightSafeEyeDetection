@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "376808639042",
+    "project_id": "sightsafe-1186c",
+    "storage_bucket": "sightsafe-1186c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376808639042:android:5240a0d313615c0bc3fbdb",
+        "android_client_info": {
+          "package_name": "com.example.sightsafe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_afmiST-kiFQmcagWlxCsBOtIEbNtXFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
