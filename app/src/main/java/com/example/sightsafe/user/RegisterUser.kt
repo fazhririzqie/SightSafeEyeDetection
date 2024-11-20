@@ -107,7 +107,10 @@ class RegisterUser : AppCompatActivity() {
             finish()
         }
 
+
     }
+
+
 
     private fun showAlertDialog(title: String, message: String) {
         val builder = AlertDialog.Builder(this)

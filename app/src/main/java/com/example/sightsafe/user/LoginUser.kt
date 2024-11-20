@@ -5,15 +5,21 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
+import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sightsafe.MainActivity
 import com.example.sightsafe.R
 import com.example.sightsafe.databinding.ActivityLoginUserBinding
 import com.example.sightsafe.user.EmailValidator.addEmailValidation
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 
 
 class LoginUser : AppCompatActivity() {
@@ -79,6 +85,48 @@ class LoginUser : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // Configure Google Sign In
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.client_id))
+            .requestEmail()
+            .build()
+
+        val googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        // Add Google sign-in
+        binding.googleBtn.setOnClickListener {
+            googleSignInClient.signOut()
+            binding.progressBar.visibility = View.VISIBLE
+            startActivityForResult(googleSignInClient.signInIntent, 13)
+        }
+
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 13 && resultCode == RESULT_OK) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            val account = task.getResult(ApiException::class.java)!!
+            firebaseAuthWithGoogle(account.idToken!!)
+        } else{
+            binding.progressBar.visibility = View.GONE
+        }
+    }
+
+    private fun firebaseAuthWithGoogle(idToken: String) {
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+        firebaseAuth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                binding.progressBar.visibility = View.GONE
+                if (task.isSuccessful) {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                }
+            }.addOnFailureListener { exception ->
+                binding.progressBar.visibility = View.GONE
+                Toast.makeText(this, exception.localizedMessage, Toast.LENGTH_LONG).show()
+            }
     }
 
     private fun showAlertDialog(title: String, message: String) {

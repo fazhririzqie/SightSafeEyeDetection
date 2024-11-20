@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
             finish() // Close MainActivity to prevent returning to it
         }
 
-
     }
 
     override fun onBackPressed() {

@@ -20,6 +20,8 @@
     <string name="Confirm_Password">Confirm Password</string>
     <string name="logout">Logout</string>
     <string name="toggle_password_visibility">toggle</string>
+    
+    <string name="client_id">376808639042-hrrla6h31dh9d1sltgualnujmrn5aeq1.apps.googleusercontent.com</string>
 
 
 </resources>
