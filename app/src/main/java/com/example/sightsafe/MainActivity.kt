@@ -34,7 +34,9 @@ class MainActivity : AppCompatActivity() {
             finish() // Close MainActivity to prevent returning to splash screen
         } else {
             // User is logged in, proceed to main content
-            // Add your main content initialization here
+            // User is logged in, display email
+            val email = currentUser.email
+            binding.userEmail.text = email
         }
 
         // Set up logout button
@@ -49,6 +51,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        finishAffinity() // Exit the application
+        finishAffinity() // Exit the application.
     }
 }
