@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.sightsafe.databinding.ActivityMainBinding
 import com.example.sightsafe.user.LoginUser
 import com.google.firebase.auth.FirebaseAuth
@@ -25,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         firebaseAuth = FirebaseAuth.getInstance()
 
-
         val currentUser = firebaseAuth.currentUser
         if (currentUser == null) {
             // User is not logged in, navigate to LoginUser
@@ -33,20 +34,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish() // Close MainActivity to prevent returning to splash screen
         } else {
-            // User is logged in, proceed to main content
-            // User is logged in, display email
-            val email = currentUser.email
-            binding.userEmail.text = email
+            // User is logged in, set up BottomNavigationView
+            val navController = findNavController(R.id.nav_host_fragment)
+            binding.navView.setupWithNavController(navController)
         }
-
-        // Set up logout button
-        binding.logoutButton.setOnClickListener {
-            firebaseAuth.signOut()
-            val intent = Intent(this, LoginUser::class.java)
-            startActivity(intent)
-            finish() // Close MainActivity to prevent returning to it
-        }
-
     }
 
     override fun onBackPressed() {

@@ -6,7 +6,6 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 
-        <item name="android:textColor">@color/textColorDarkMode</item>
     </style>
 
     <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">

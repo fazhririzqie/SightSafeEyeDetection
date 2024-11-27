@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.7"
-        android:background="#FFFFFF">
+        >
 
         <ImageView
             android:id="@+id/imageView"
@@ -45,7 +45,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="-20dp"
-        app:cardBackgroundColor="#F4EFEF"
         app:cardCornerRadius="28dp">
 
         <LinearLayout
@@ -86,7 +85,6 @@
                 android:autofillHints=""
                 android:drawableStart="@drawable/baseline_email_24"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/textColorDarkMode"
                 tools:ignore="LabelFor" />
 
             <View
@@ -112,7 +110,6 @@
                     android:layout_centerVertical="true"
                     android:drawableStart="@drawable/baseline_lock_24"
                     android:inputType="textPassword"
-                    android:textColor="@color/textColorDarkMode"
                     android:paddingEnd="48dp" />
 
                 <ImageView
@@ -152,7 +149,6 @@
                     android:layout_centerVertical="true"
                     android:drawableStart="@drawable/baseline_lock_24"
                     android:inputType="textPassword"
-                    android:textColor="@color/textColorDarkMode"
                     android:paddingEnd="48dp" />
 
                 <ImageView

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
-import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
@@ -96,7 +95,6 @@ class LoginUser : AppCompatActivity() {
         // Add Google sign-in
         binding.googleBtn.setOnClickListener {
             googleSignInClient.signOut()
-            binding.progressBar.visibility = View.VISIBLE
             startActivityForResult(googleSignInClient.signInIntent, 13)
         }
 
@@ -109,8 +107,6 @@ class LoginUser : AppCompatActivity() {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             val account = task.getResult(ApiException::class.java)!!
             firebaseAuthWithGoogle(account.idToken!!)
-        } else{
-            binding.progressBar.visibility = View.GONE
         }
     }
 
@@ -118,13 +114,11 @@ class LoginUser : AppCompatActivity() {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
-                binding.progressBar.visibility = View.GONE
                 if (task.isSuccessful) {
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 }
             }.addOnFailureListener { exception ->
-                binding.progressBar.visibility = View.GONE
                 Toast.makeText(this, exception.localizedMessage, Toast.LENGTH_LONG).show()
             }
     }

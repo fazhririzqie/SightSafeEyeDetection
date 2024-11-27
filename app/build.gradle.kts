@@ -53,7 +53,11 @@ dependencies {
     //splash screen
     implementation(libs.androidx.core.splashscreen)
 
-    implementation ("com.google.android.material:material:1.12.0")
+    implementation (libs.material)
+
+    implementation ("com.google.android.material:material:1.3.0-alpha03")
+    implementation (libs.androidx.navigation.fragment.ktx)
+    implementation (libs.androidx.navigation.ui.ktx)
 
     //firebase auth
     implementation("com.google.firebase:firebase-auth:23.1.0")

@@ -6,12 +6,15 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 
-        <item name="android:textColor">@color/textColorDarkMode</item>
     </style>
 
     <style name="Theme.SightSafe" parent="Base.Theme.SightSafe" />
 
-
+    <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/sight_safe</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.SightSafe</item>
+    </style>
 
 
 </resources>

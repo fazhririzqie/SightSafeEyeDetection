@@ -7,18 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".user.LoginUser">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="gone" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.7"
-        android:background="#FFFFFF">
+        android:alpha="0.7">
 
         <ImageView
             android:id="@+id/imageView"
@@ -36,17 +29,6 @@
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/card_view"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="28dp">
-
-
-
-    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
@@ -54,7 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="-20dp"
-        app:cardBackgroundColor="#F4EFEF"
         app:cardCornerRadius="28dp">
 
         <LinearLayout
@@ -95,7 +76,6 @@
                 android:autofillHints=""
                 android:drawableStart="@drawable/baseline_email_24"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/textColorDarkMode"
                 tools:ignore="LabelFor" />
 
             <View
@@ -121,7 +101,7 @@
                     android:layout_centerVertical="true"
                     android:drawableStart="@drawable/baseline_lock_24"
                     android:inputType="textPassword"
-                    android:textColor="@color/textColorDarkMode"
+
                     android:paddingEnd="48dp" />
 
                 <ImageView
