@@ -1,16 +1,13 @@
 package com.example.sightsafe.user
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.InputType
-import android.text.TextWatcher
-import android.widget.EditText
-import android.widget.ImageView
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.sightsafe.R
 import com.example.sightsafe.databinding.ActivityRegisterUserBinding
 import com.example.sightsafe.user.EmailValidator.addEmailValidation
 import com.example.sightsafe.user.PasswordValidator.addPasswordValidation
@@ -20,8 +17,6 @@ import com.google.firebase.auth.FirebaseAuth
 class RegisterUser : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterUserBinding
     private lateinit var firebaseAuth: FirebaseAuth
-    private var isPasswordVisible = false
-    private var isConfirmPasswordVisible = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,39 +29,6 @@ class RegisterUser : AppCompatActivity() {
 
         // Initialize Firebase Auth
         firebaseAuth = FirebaseAuth.getInstance()
-
-        // Set initial visibility of eye icons
-        binding.togglePasswordVisibility.visibility = ImageView.INVISIBLE
-        binding.toggleConfirmPasswordVisibility.visibility = ImageView.INVISIBLE
-
-        // Toggle password visibility
-        binding.togglePasswordVisibility.setOnClickListener {
-            isPasswordVisible = !isPasswordVisible
-            togglePasswordVisibility(binding.editTextPassword, binding.togglePasswordVisibility, isPasswordVisible)
-        }
-
-        // Toggle confirm password visibility
-        binding.toggleConfirmPasswordVisibility.setOnClickListener {
-            isConfirmPasswordVisible = !isConfirmPasswordVisible
-            togglePasswordVisibility(binding.editTextConfirmPassword, binding.toggleConfirmPasswordVisibility, isConfirmPasswordVisible)
-        }
-
-        // Add TextWatcher to show/hide eye icon
-        binding.editTextPassword.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                binding.togglePasswordVisibility.visibility = if (s.isNullOrEmpty()) ImageView.INVISIBLE else ImageView.VISIBLE
-            }
-            override fun afterTextChanged(s: Editable?) {}
-        })
-
-        binding.editTextConfirmPassword.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                binding.toggleConfirmPasswordVisibility.visibility = if (s.isNullOrEmpty()) ImageView.INVISIBLE else ImageView.VISIBLE
-            }
-            override fun afterTextChanged(s: Editable?) {}
-        })
 
         binding.Register.setOnClickListener {
             val email = binding.editTextEmail.text.toString()
@@ -101,15 +63,47 @@ class RegisterUser : AppCompatActivity() {
             }
         }
 
-        binding.LoginUser.setOnClickListener {
-            val intent = Intent(this, LoginUser::class.java)
-            startActivity(intent)
-            finish()
-        }
-
+        playAnimation()
 
     }
 
+    private fun playAnimation() {
+        ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
+            duration = 6000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+        }.start()
+
+        val title = ObjectAnimator.ofFloat(binding.titleTextView, View.ALPHA, 1f).setDuration(100)
+        val emailTextView =
+            ObjectAnimator.ofFloat(binding.emailTextView, View.ALPHA, 1f).setDuration(100)
+        val nameEditTextLayout =
+            ObjectAnimator.ofFloat(binding.nameEditTextLayout, View.ALPHA, 1f).setDuration(100)
+        val passwordTextView =
+            ObjectAnimator.ofFloat(binding.passwordTextView, View.ALPHA, 1f).setDuration(100)
+        val texteditpasswordlayout =
+            ObjectAnimator.ofFloat(binding.texteditPasswordLayout, View.ALPHA, 1f).setDuration(100)
+        val confirmpasswordTextView =
+            ObjectAnimator.ofFloat(binding.confirmpasswordTextView, View.ALPHA, 1f).setDuration(100)
+        val confirmpasswordEditTextLayout =
+            ObjectAnimator.ofFloat(binding.confirmpasswordEditTextLayout, View.ALPHA, 1f).setDuration(100)
+        val register = ObjectAnimator.ofFloat(binding.Register, View.ALPHA, 1f).setDuration(100)
+
+
+        AnimatorSet().apply {
+            playSequentially(
+                title,
+                emailTextView,
+                nameEditTextLayout,
+                passwordTextView,
+                texteditpasswordlayout,
+                confirmpasswordTextView,
+                confirmpasswordEditTextLayout,
+                register
+            )
+            startDelay = 100
+        }.start()
+    }
 
 
     private fun showAlertDialog(title: String, message: String) {
@@ -119,17 +113,6 @@ class RegisterUser : AppCompatActivity() {
         builder.setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
         val dialog = builder.create()
         dialog.show()
-    }
-
-    private fun togglePasswordVisibility(editText: EditText, imageView: ImageView, isVisible: Boolean) {
-        if (isVisible) {
-            editText.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-            imageView.setImageResource(R.drawable.ic_eye_off)
-        } else {
-            editText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-            imageView.setImageResource(R.drawable.ic_eye)
-        }
-        editText.setSelection(editText.text.length)
     }
 
 }

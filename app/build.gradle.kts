@@ -9,7 +9,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.sightsafe"
+        applicationId = "com.example.sightsafe2"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -53,13 +53,19 @@ dependencies {
     //splash screen
     implementation(libs.androidx.core.splashscreen)
 
-    implementation (libs.material)
 
-    implementation ("com.google.android.material:material:1.3.0-alpha03")
     implementation (libs.androidx.navigation.fragment.ktx)
     implementation (libs.androidx.navigation.ui.ktx)
+
+
 
     //firebase auth
     implementation("com.google.firebase:firebase-auth:23.1.0")
     implementation("com.google.android.gms:play-services-auth:21.2.0")
+
+    //retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7") //untuk lifecycleScope
 }

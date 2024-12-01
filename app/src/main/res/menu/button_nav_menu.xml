@@ -3,7 +3,7 @@
     <item
         android:id="@+id/navigation_imageupload"
         android:icon="@drawable/ic_baseline_add_photo_alternate_24"
-        android:title="Image Upload" />
+        android:title="Upload" />
 
     <item
         android:id="@+id/navigation_camera"

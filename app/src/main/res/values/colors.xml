@@ -22,4 +22,13 @@
     <color name="my_secondary">#673AB7</color>
 
 
+    <color name="gray100">#F7FAFC</color>
+    <color name="gray300">#E2E8F0</color>
+    <color name="gray500">#A0AEC0</color>
+    <color name="gray700">#4A5568</color>
+    <color name="gray800">#2D3748</color>
+    <color name="blue500">#4299E1</color>
+
+    <color name="navy">#2D3D4F</color>
+
 </resources>

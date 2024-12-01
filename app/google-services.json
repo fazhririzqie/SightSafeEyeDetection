@@ -1,26 +1,44 @@
 {
   "project_info": {
-    "project_number": "376808639042",
-    "project_id": "sightsafe-1186c",
-    "storage_bucket": "sightsafe-1186c.firebasestorage.app"
+    "project_number": "399068624986",
+    "project_id": "sightsafe-eye-detection",
+    "storage_bucket": "sightsafe-eye-detection.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:376808639042:android:5240a0d313615c0bc3fbdb",
+        "mobilesdk_app_id": "1:399068624986:android:8da30a97354dc8c9454063",
         "android_client_info": {
-          "package_name": "com.example.sightsafe"
+          "package_name": "com.example.sightsafe2"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "399068624986-8umvak8rgdjb2merb4mdcji8bbu8msfa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sightsafe2",
+            "certificate_hash": "0774c6d53bae43baf6d98aab73ce1f070b93df6c"
+          }
+        },
+        {
+          "client_id": "399068624986-epjadstjee8kvh9osmlbbeip96h3ntn7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyA_afmiST-kiFQmcagWlxCsBOtIEbNtXFs"
+          "current_key": "AIzaSyBc6ZEQG_RC7SMRwBQytONMJKkQYFxeyUw"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "399068624986-epjadstjee8kvh9osmlbbeip96h3ntn7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

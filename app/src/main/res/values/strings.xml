@@ -21,9 +21,17 @@
     <string name="logout">Logout</string>
     <string name="toggle_password_visibility">toggle</string>
 
-    <string name="client_id">376808639042-hrrla6h31dh9d1sltgualnujmrn5aeq1.apps.googleusercontent.com</string>
+    <string name="client_id">399068624986-epjadstjee8kvh9osmlbbeip96h3ntn7.apps.googleusercontent.com</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="imageuploadd">Image Upload</string>
+    <string name="drag"><![CDATA[Upload Image File on Browse]]></string>
+    <string name="browse">BROWSE FILES</string>
+    <string name="dragfile">Drop Image Here</string>
+    <string name="browseFile">Browse</string>
+    <string name="analyzeImage">Analyze Image</string>
+    <string name="empty_image_warning">Silakan masukkan berkas gambar terlebih dahulu.</string>
 
 
+    <string name="info">Informasi</string>
+    <string name="validate_login_success">Login berhasil!</string>
 </resources>

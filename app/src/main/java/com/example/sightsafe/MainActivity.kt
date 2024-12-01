@@ -7,13 +7,15 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.sightsafe.databinding.ActivityMainBinding
-import com.example.sightsafe.user.LoginUser
+import com.example.sightsafe.user.WelcomeActivity
 import com.google.firebase.auth.FirebaseAuth
+
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var binding: ActivityMainBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val currentUser = firebaseAuth.currentUser
         if (currentUser == null) {
             // User is not logged in, navigate to LoginUser
-            val intent = Intent(this, LoginUser::class.java)
+            val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
             finish() // Close MainActivity to prevent returning to splash screen
         } else {
@@ -38,6 +40,8 @@ class MainActivity : AppCompatActivity() {
             val navController = findNavController(R.id.nav_host_fragment)
             binding.navView.setupWithNavController(navController)
         }
+
+
     }
 
     override fun onBackPressed() {
