@@ -5,17 +5,17 @@
     app:startDestination="@id/navigation_imageupload">
 
     <fragment
-        android:id="@+id/navigation_imageupload"
-        android:name="com.example.sightsafe.ui.FragmentImageUpload"
-        android:label="imageupload"
-        tools:layout="@layout/fragment_image_upload" >
-    </fragment>
-
-    <fragment
         android:id="@+id/navigation_setting"
         android:name="com.example.sightsafe.ui.FragmentSetting"
         android:label="setting"
         tools:layout="@layout/fragment_setting">
 
     </fragment>
+    <fragment
+        android:id="@+id/navigation_imageupload"
+        android:name="com.example.sightsafe.ui.FragmentImageUpload"
+        android:label="imageupload"
+        tools:layout="@layout/fragment_image_upload" >
+    </fragment>
+
 </navigation>

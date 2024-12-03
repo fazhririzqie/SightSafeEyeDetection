@@ -4,9 +4,11 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="app_theme">#17b8ad</color>
+    <color name="app_theme2">#d5e061</color>
     <color name="app_theme_light">#f6fbff</color>
     <color name="edit_text_background">#f6fbff</color>
     <color name="edit_text_border">#17b8ad</color>
+
 
     <color name="colorPrimary">#17b8ad</color>
     <color name="colorPrimaryDark">#17b8ad</color>

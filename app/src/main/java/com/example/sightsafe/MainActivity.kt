@@ -1,12 +1,13 @@
 package com.example.sightsafe
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.sightsafe.databinding.ActivityMainBinding
+import com.example.sightsafe.ui.FragmentImageUpload
+import com.example.sightsafe.user.CommunityBottomSheet
 import com.example.sightsafe.user.WelcomeActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -35,13 +36,42 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
             finish() // Close MainActivity to prevent returning to splash screen
-        } else {
-            // User is logged in, set up BottomNavigationView
-            val navController = findNavController(R.id.nav_host_fragment)
-            binding.navView.setupWithNavController(navController)
+        }else{
+            val email = currentUser.email
+            val name = email?.substringBefore("@")
+            binding.textUser.text = "Hi, $name"
+        }
+        binding.logoutButton.setOnClickListener {
+            showLogoutConfirmationDialog()
         }
 
+        binding.cardUpload.setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.main, FragmentImageUpload())
+                .addToBackStack(null)
+                .commit()
+        }
 
+        binding.selectComun.setOnClickListener {
+            val bottomSheet = CommunityBottomSheet()
+            bottomSheet.show(supportFragmentManager, bottomSheet.tag)
+        }
+
+    }
+
+    private fun showLogoutConfirmationDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Apakah yakin akan logout?")
+            .setPositiveButton("Iya") { dialog, id ->
+                firebaseAuth.signOut()
+                val intent = Intent(this, WelcomeActivity::class.java)
+                startActivity(intent)
+                finish() // Close MainActivity to prevent returning to it
+            }
+            .setNegativeButton("Tidak") { dialog, id ->
+                dialog.dismiss()
+            }
+        builder.create().show()
     }
 
     override fun onBackPressed() {

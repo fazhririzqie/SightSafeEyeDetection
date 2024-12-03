@@ -4,5 +4,7 @@
         <item>@font/mulish_extrabold</item>
         <item>@font/mulish_light</item>
         <item>@font/nunito_semibold</item>
+        <item>@font/poppins</item>
+        <item>@font/poppins_light</item>
     </array>
 </resources>

@@ -18,6 +18,9 @@
         android:theme="@style/Theme.SightSafe"
         tools:targetApi="31">
         <activity
+            android:name=".ui.HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".user.WelcomeActivity"
             android:exported="false" />
         <activity

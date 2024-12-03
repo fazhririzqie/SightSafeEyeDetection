@@ -34,4 +34,5 @@
 
     <string name="info">Informasi</string>
     <string name="validate_login_success">Login berhasil!</string>
+    <string name="or_login_with">Or login with</string>
 </resources>

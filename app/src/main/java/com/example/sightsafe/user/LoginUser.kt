@@ -127,6 +127,7 @@ class LoginUser : AppCompatActivity() {
         val passwordEditTextLayout =
             ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 1f).setDuration(100)
         val login = ObjectAnimator.ofFloat(binding.Login, View.ALPHA, 1f).setDuration(100)
+        val orlogin = ObjectAnimator.ofFloat(binding.orlogin, View.ALPHA, 1f).setDuration(100)
         val googleBtn = ObjectAnimator.ofFloat(binding.googleBtn, View.ALPHA, 1f).setDuration(100)
 
         AnimatorSet().apply {
@@ -138,6 +139,7 @@ class LoginUser : AppCompatActivity() {
                 passwordTextView,
                 passwordEditTextLayout,
                 login,
+                orlogin,
                 googleBtn
             )
             startDelay = 100
