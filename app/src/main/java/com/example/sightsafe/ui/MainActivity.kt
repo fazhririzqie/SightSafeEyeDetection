@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.sightsafe.databinding.ActivityMainBinding
-import com.example.sightsafe.ui.FragmentImageUpload
+import com.example.sightsafe.ui.ImageUpload
 import com.example.sightsafe.user.CommunityBottomSheet
 import com.example.sightsafe.user.WelcomeActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -46,10 +46,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.cardUpload.setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.main, FragmentImageUpload())
-                .addToBackStack(null)
-                .commit()
+            val intent = Intent(this, ImageUpload::class.java)
+            startActivity(intent)
         }
 
         binding.selectComun.setOnClickListener {
