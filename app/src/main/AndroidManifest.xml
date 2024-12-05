@@ -18,10 +18,13 @@
         android:theme="@style/Theme.SightSafe"
         tools:targetApi="31">
         <activity
+            android:name=".ui.ImageUpload"
+            android:exported="false" />
+        <activity
             android:name=".ui.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".user.WelcomeActivity"
+            android:name=".ui.WelcomeActivity"
             android:exported="false" />
         <activity
             android:name=".user.RegisterUser"
@@ -30,7 +33,7 @@
             android:name=".user.LoginUser"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.App.SplashScreen">
             <intent-filter>

@@ -1,4 +1,4 @@
-package com.example.sightsafe.user
+package com.example.sightsafe.ui
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -11,6 +11,8 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sightsafe.databinding.ActivityWelcomeBinding
+import com.example.sightsafe.user.LoginUser
+import com.example.sightsafe.user.RegisterUser
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding

@@ -1,4 +1,4 @@
-package com.example.sightsafe.user
+package com.example.sightsafe.ui
 
 import android.content.Intent
 import android.net.Uri
@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.sightsafe.R
 import com.example.sightsafe.databinding.BottomsheetlayoutBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 

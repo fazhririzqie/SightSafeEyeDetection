@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.sightsafe.MainActivity
+import com.example.sightsafe.ui.MainActivity
 import com.example.sightsafe.R
 import com.example.sightsafe.databinding.ActivityLoginUserBinding
 import com.example.sightsafe.user.EmailValidator.addEmailValidation
