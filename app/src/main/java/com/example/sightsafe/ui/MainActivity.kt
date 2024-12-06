@@ -1,9 +1,10 @@
 package com.example.sightsafe.ui
 
-import android.app.AlertDialog
+
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -17,6 +18,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var currentImageUri: Uri? = null
     private var email: String? = null
+
+    private var backPressedTime: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             email = currentUser.email
             val name = email?.substringBefore("@")
-            binding.textUser.text = "Hi, $name"
+            binding.textUser.text = "$name"
 
             // Display check count
             val checkCount = PreferencesHelper.getCheckCount(this, email!!)
@@ -47,7 +50,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.logoutButton.setOnClickListener {
-            showLogoutConfirmationDialog()
+            val profileBottomSheet = ProfileBottomSheet()
+            profileBottomSheet.show(supportFragmentManager, "ProfileBottomSheet")
         }
 
         binding.cardUpload.setOnClickListener {
@@ -55,9 +59,19 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.selectHistory.setOnClickListener {
+            val intent = Intent(this, HistoryActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.selectComun.setOnClickListener {
             val bottomSheet = CommunityBottomSheet()
             bottomSheet.show(supportFragmentManager, bottomSheet.tag)
+        }
+
+        binding.menu.setOnClickListener {
+            val menuBottomSheet = MenuBottomSheet()
+            menuBottomSheet.show(supportFragmentManager, "MenuBottomSheet")
         }
 
         binding.camera.setOnClickListener {
@@ -83,23 +97,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showLogoutConfirmationDialog() {
-        val builder = AlertDialog.Builder(this)
-        builder.setMessage("Apakah yakin akan logout?")
-            .setPositiveButton("Iya") { dialog, id ->
-                firebaseAuth.signOut()
-                val intent = Intent(this, WelcomeActivity::class.java)
-                startActivity(intent)
-                finish() // Close MainActivity to prevent returning to it
-            }
-            .setNegativeButton("Tidak") { dialog, id ->
-                dialog.dismiss()
-            }
-        builder.create().show()
-    }
+
 
     override fun onBackPressed() {
-        super.onBackPressed()
-        finishAffinity() // Exit the application.
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed()
+            finishAffinity() // This will close the app
+        } else {
+            Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show()
+        }
+        backPressedTime = System.currentTimeMillis()
     }
 }
