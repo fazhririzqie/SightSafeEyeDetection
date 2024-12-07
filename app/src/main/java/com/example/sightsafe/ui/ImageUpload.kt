@@ -135,7 +135,5 @@ class ImageUpload : AppCompatActivity() {
         _binding = null
     }
 
-    companion object {
-        private const val REQUIRED_PERMISSION = android.Manifest.permission.CAMERA
-    }
+
 }

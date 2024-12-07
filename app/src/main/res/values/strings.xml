@@ -29,11 +29,11 @@
     <string name="dragfile">Drop Image Here</string>
     <string name="browseFile">Browse</string>
     <string name="analyzeImage">Analyze Image</string>
-    <string name="empty_image_warning">Silakan masukkan berkas gambar terlebih dahulu.</string>
+    <string name="empty_image_warning">Please upload an image first.</string>
 
 
     <string name="info">Informasi</string>
-    <string name="validate_login_success">Login berhasil!</string>
+    <string name="validate_login_success">Login succesfull!</string>
     <string name="or_login_with">Or login with</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -77,4 +77,26 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+
+
+    <string-array name="title_news">
+        <item>Dry eye disease increasing among younger people as research explores link with screen time</item>
+        <item>What To Know About Vision Loss?</item>
+        <item>PWM in smartphones and how it can affect your eye health</item>
+    </string-array>
+
+    <string-array name="subtitle_news">
+        <item>ABC</item>
+        <item>NDTV</item>
+        <item>CNBC</item>
+    </string-array>
+    
+    <string-array name="news_photo">
+        <item>@drawable/abc_cover</item>
+        <item>@drawable/ndtv_cover</item>
+        <item>@drawable/cnbc_cover</item>
+    </string-array>
+
+
+
 </resources>

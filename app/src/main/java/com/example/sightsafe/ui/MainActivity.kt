@@ -8,7 +8,11 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sightsafe.PreferencesHelper
+import com.example.sightsafe.R
+import com.example.sightsafe.adapter.News
+import com.example.sightsafe.adapter.NewsAdapter
 import com.example.sightsafe.databinding.ActivityMainBinding
 import com.example.sightsafe.getImageUri
 import com.google.firebase.auth.FirebaseAuth
@@ -77,6 +81,33 @@ class MainActivity : AppCompatActivity() {
         binding.camera.setOnClickListener {
             startCamera()
         }
+
+        // Create a list of News objects
+        val newsList = listOf(
+            News(
+                "Dry eye disease increasing among younger people as research explores link with screen time",
+                "ABC",
+                R.drawable.abc_cover,
+                "https://www.abc.net.au/news/2024-12-06/dry-eye-disease-screen-time-younger-people/104659124"
+            ),
+            News(
+                "What To Know About Vision Loss?",
+                "NDTV",
+                R.drawable.ndtv_cover,
+                "https://www.ndtv.com/health/what-to-know-about-vision-loss-7171042"
+            ),
+            News(
+                "PWM in smartphones and how it can affect your eye health",
+                "CNBC",
+                R.drawable.cnbc_cover,
+                "https://www.cnbctv18.com/technology/for-your-eyes-only-pwm-in-smartphones-and-how-it-can-affect-your-eye-health-19520090.htm"
+            )
+        )
+
+        // Initialize RecyclerView
+        val newsAdapter = NewsAdapter(newsList)
+        binding.recyclerViewNews.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerViewNews.adapter = newsAdapter
     }
 
     private fun startCamera() {
