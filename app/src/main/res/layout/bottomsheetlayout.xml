@@ -33,10 +33,6 @@
             android:textSize="15sp"/>
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/app_theme" />
 
     <LinearLayout
         android:id="@+id/layoutJEC"
@@ -53,10 +49,6 @@
             android:textSize="15sp"/>
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/app_theme" />
 
 
     <LinearLayout
@@ -73,10 +65,7 @@
             android:text="American Academy of Ophthalmology"
             android:textSize="15sp"/>
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/app_theme" />
+
     <LinearLayout
         android:id="@+id/layoutIABP"
         android:layout_marginTop="20dp"
@@ -92,9 +81,5 @@
             android:textSize="15sp"/>
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/app_theme" />
 
 </LinearLayout>

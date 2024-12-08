@@ -90,7 +90,7 @@
         <item>NDTV</item>
         <item>CNBC</item>
     </string-array>
-    
+
     <string-array name="news_photo">
         <item>@drawable/abc_cover</item>
         <item>@drawable/ndtv_cover</item>

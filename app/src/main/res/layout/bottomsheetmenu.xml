@@ -27,26 +27,16 @@
         android:layout_height="wrap_content"
         android:padding="8dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_baseline_add_photo_alternate_24"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:fontFamily="@font/afacad"
+            android:fontFamily="@font/poppins"
             android:text="File Upload"
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/app_theme" />
 
     <LinearLayout
         android:id="@+id/History"
@@ -56,26 +46,17 @@
         android:layout_height="wrap_content"
         android:padding="8dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/baseline_history_24_black"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:fontFamily="@font/afacad"
+            android:fontFamily="@font/poppins"
             android:text="History"
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/app_theme" />
 
     <LinearLayout
         android:id="@+id/About"
@@ -85,24 +66,15 @@
         android:layout_height="wrap_content"
         android:padding="8dp">
 
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
-            android:src="@drawable/about"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:fontFamily="@font/afacad"
+            android:fontFamily="@font/poppins"
             android:text="About"
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/app_theme" />
 
 </LinearLayout>

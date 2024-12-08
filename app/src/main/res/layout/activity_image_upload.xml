@@ -9,6 +9,16 @@
     tools:context=".ui.ImageUpload">
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins"
+        android:textStyle="bold"
+        android:text="Upload Your \nImage Here"/>
 
     <LinearLayout
         android:id="@+id/container"
