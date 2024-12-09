@@ -39,6 +39,10 @@ class ResultActivity : AppCompatActivity() {
         binding.save.setOnClickListener {
             saveResultToFirebase(imageUri.toString(), resultText)
         }
+
+        binding.exit.setOnClickListener {
+            navigateToHome()
+        }
     }
 
     private fun saveResultToFirebase(imageUri: String, resultText: String?) {
@@ -57,5 +61,17 @@ class ResultActivity : AppCompatActivity() {
             .addOnFailureListener {
                 Toast.makeText(this, "Failed to save result", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun navigateToHome() {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        navigateToHome()
     }
 }

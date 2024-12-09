@@ -35,6 +35,12 @@ class MenuBottomSheet : BottomSheetDialogFragment() {
             val intent = Intent(activity, HistoryActivity::class.java)
             startActivity(intent)
         }
+
+        // Set click listener for About
+        binding.About.setOnClickListener {
+            val intent = Intent(activity, AboutActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onDestroyView() {

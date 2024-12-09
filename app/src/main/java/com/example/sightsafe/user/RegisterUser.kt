@@ -68,42 +68,46 @@ class RegisterUser : AppCompatActivity() {
     }
 
     private fun playAnimation() {
-        ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
+        val imageViewAnim = ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
             duration = 6000
             repeatCount = ObjectAnimator.INFINITE
             repeatMode = ObjectAnimator.REVERSE
-        }.start()
+        }
 
-        val title = ObjectAnimator.ofFloat(binding.titleTextView, View.ALPHA, 1f).setDuration(100)
-        val emailTextView =
-            ObjectAnimator.ofFloat(binding.emailTextView, View.ALPHA, 1f).setDuration(100)
-        val nameEditTextLayout =
-            ObjectAnimator.ofFloat(binding.nameEditTextLayout, View.ALPHA, 1f).setDuration(100)
-        val passwordTextView =
-            ObjectAnimator.ofFloat(binding.passwordTextView, View.ALPHA, 1f).setDuration(100)
-        val texteditpasswordlayout =
-            ObjectAnimator.ofFloat(binding.texteditPasswordLayout, View.ALPHA, 1f).setDuration(100)
-        val confirmpasswordTextView =
-            ObjectAnimator.ofFloat(binding.confirmpasswordTextView, View.ALPHA, 1f).setDuration(100)
-        val confirmpasswordEditTextLayout =
-            ObjectAnimator.ofFloat(binding.confirmpasswordEditTextLayout, View.ALPHA, 1f).setDuration(100)
-        val register = ObjectAnimator.ofFloat(binding.Register, View.ALPHA, 1f).setDuration(100)
+    val titleAnim = ObjectAnimator.ofFloat(binding.titleTextView, View.TRANSLATION_X, -1000f, 0f).setDuration(150)
+    val emailTextViewAnim = ObjectAnimator.ofFloat(binding.emailTextView, View.TRANSLATION_X, 1000f, 0f).setDuration(150)
+    val nameEditTextLayoutAnim = ObjectAnimator.ofFloat(binding.nameEditTextLayout, View.TRANSLATION_X, -1000f, 0f).setDuration(150)
+    val passwordTextViewAnim = ObjectAnimator.ofFloat(binding.passwordTextView, View.TRANSLATION_X, 1000f, 0f).setDuration(150)
+    val texteditPasswordLayoutAnim = ObjectAnimator.ofFloat(binding.texteditPasswordLayout, View.TRANSLATION_X, -1000f, 0f).setDuration(150)
+    val confirmpasswordTextViewAnim = ObjectAnimator.ofFloat(binding.confirmpasswordTextView, View.TRANSLATION_X, 1000f, 0f).setDuration(150)
+    val confirmpasswordEditTextLayoutAnim = ObjectAnimator.ofFloat(binding.confirmpasswordEditTextLayout, View.TRANSLATION_X, -1000f, 0f).setDuration(150)
+    val registerAnim = ObjectAnimator.ofFloat(binding.Register, View.TRANSLATION_X, 1000f, 0f).setDuration(150)
 
+    val titleFadeIn = ObjectAnimator.ofFloat(binding.titleTextView, View.ALPHA, 0f, 1f).setDuration(150)
+    val emailTextViewFadeIn = ObjectAnimator.ofFloat(binding.emailTextView, View.ALPHA, 0f, 1f).setDuration(150)
+    val nameEditTextLayoutFadeIn = ObjectAnimator.ofFloat(binding.nameEditTextLayout, View.ALPHA, 0f, 1f).setDuration(150)
+    val passwordTextViewFadeIn = ObjectAnimator.ofFloat(binding.passwordTextView, View.ALPHA, 0f, 1f).setDuration(150)
+    val texteditPasswordLayoutFadeIn = ObjectAnimator.ofFloat(binding.texteditPasswordLayout, View.ALPHA, 0f, 1f).setDuration(150)
+    val confirmpasswordTextViewFadeIn = ObjectAnimator.ofFloat(binding.confirmpasswordTextView, View.ALPHA, 0f, 1f).setDuration(150)
+    val confirmpasswordEditTextLayoutFadeIn = ObjectAnimator.ofFloat(binding.confirmpasswordEditTextLayout, View.ALPHA, 0f, 1f).setDuration(150)
+    val registerFadeIn = ObjectAnimator.ofFloat(binding.Register, View.ALPHA, 0f, 1f).setDuration(150)
 
-        AnimatorSet().apply {
-            playSequentially(
-                title,
-                emailTextView,
-                nameEditTextLayout,
-                passwordTextView,
-                texteditpasswordlayout,
-                confirmpasswordTextView,
-                confirmpasswordEditTextLayout,
-                register
-            )
-            startDelay = 100
-        }.start()
-    }
+    AnimatorSet().apply {
+        playSequentially(
+            AnimatorSet().apply { playTogether(titleAnim, titleFadeIn) },
+            AnimatorSet().apply { playTogether(emailTextViewAnim, emailTextViewFadeIn) },
+            AnimatorSet().apply { playTogether(nameEditTextLayoutAnim, nameEditTextLayoutFadeIn) },
+            AnimatorSet().apply { playTogether(passwordTextViewAnim, passwordTextViewFadeIn) },
+            AnimatorSet().apply { playTogether(texteditPasswordLayoutAnim, texteditPasswordLayoutFadeIn) },
+            AnimatorSet().apply { playTogether(confirmpasswordTextViewAnim, confirmpasswordTextViewFadeIn) },
+            AnimatorSet().apply { playTogether(confirmpasswordEditTextLayoutAnim, confirmpasswordEditTextLayoutFadeIn) },
+            AnimatorSet().apply { playTogether(registerAnim, registerFadeIn) }
+        )
+        startDelay = 100
+    }.start()
+
+    imageViewAnim.start()
+}
 
 
     private fun showAlertDialog(title: String, message: String) {

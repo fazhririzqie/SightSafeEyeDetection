@@ -302,6 +302,16 @@
                                 android:text="Maintaining eye health is crucial because our eyes are essential for most daily activities, allowing us to perceive and interact with the world around us. Good vision supports productivity, learning, and safety, while poor eye health can lead to discomfort, impaired vision, or even permanent blindness if not addressed. Regular eye care helps detect and prevent conditions like myopia, cataracts, or glaucoma early, ensuring long-term quality of life and independence."
                                 android:textSize="15sp" />
 
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:textSize="15sp"
+                                android:fontFamily="@font/poppins"
+                                android:text="SightSafe is here for you as the beginning of detecting eye diseases, because our tagline is  Protect Your Sight, Detect with Insight."/>
+
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 

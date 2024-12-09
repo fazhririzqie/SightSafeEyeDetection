@@ -28,7 +28,7 @@ class PasswordEditText : TextInputEditText {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s.toString().length < 8) {
-                    error = "Password tidak boleh kurang dari 8 karakter"
+                    error = "Password must be at least 8 characters long"
                 } else {
                     error = null
                 }

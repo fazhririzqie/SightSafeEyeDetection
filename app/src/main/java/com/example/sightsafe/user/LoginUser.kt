@@ -21,7 +21,6 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
-
 class LoginUser : AppCompatActivity() {
     private lateinit var binding: ActivityLoginUserBinding
     private lateinit var firebaseAuth: FirebaseAuth
@@ -37,8 +36,6 @@ class LoginUser : AppCompatActivity() {
 
         // Initialize Firebase Auth
         firebaseAuth = FirebaseAuth.getInstance()
-
-
 
         // Initialize ViewModel
         vmsignin = ViewModelProvider(this)[SignInViewModel::class.java]
@@ -86,10 +83,7 @@ class LoginUser : AppCompatActivity() {
                     finish()
                 }, 2000)
             }
-
-            playAnimation()
         }
-
 
         binding.googleBtn.setOnClickListener {
             binding.progressBarLogin.visibility = View.VISIBLE
@@ -103,47 +97,51 @@ class LoginUser : AppCompatActivity() {
         }
 
         playAnimation()
-
     }
 
-
-
     private fun playAnimation() {
-        ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
+        val imageViewAnim = ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
             duration = 6000
             repeatCount = ObjectAnimator.INFINITE
             repeatMode = ObjectAnimator.REVERSE
-        }.start()
+        }
 
-        val title = ObjectAnimator.ofFloat(binding.titleTextView, View.ALPHA, 1f).setDuration(100)
-        val message =
-            ObjectAnimator.ofFloat(binding.messageTextView, View.ALPHA, 1f).setDuration(100)
-        val emailTextView =
-            ObjectAnimator.ofFloat(binding.emailTextView, View.ALPHA, 1f).setDuration(100)
-        val emailEditTextLayout =
-            ObjectAnimator.ofFloat(binding.emailEditTextLayout, View.ALPHA, 1f).setDuration(100)
-        val passwordTextView =
-            ObjectAnimator.ofFloat(binding.passwordTextView, View.ALPHA, 1f).setDuration(100)
-        val passwordEditTextLayout =
-            ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 1f).setDuration(100)
-        val login = ObjectAnimator.ofFloat(binding.Login, View.ALPHA, 1f).setDuration(100)
-        val orlogin = ObjectAnimator.ofFloat(binding.orlogin, View.ALPHA, 1f).setDuration(100)
-        val googleBtn = ObjectAnimator.ofFloat(binding.googleBtn, View.ALPHA, 1f).setDuration(100)
+        val titleAnim = ObjectAnimator.ofFloat(binding.titleTextView, View.TRANSLATION_X, -1000f, 0f).setDuration(150)
+        val messageAnim = ObjectAnimator.ofFloat(binding.messageTextView, View.TRANSLATION_X, 1000f, 0f).setDuration(150)
+        val emailTextViewAnim = ObjectAnimator.ofFloat(binding.emailTextView, View.TRANSLATION_X, -1000f, 0f).setDuration(150)
+        val emailEditTextLayoutAnim = ObjectAnimator.ofFloat(binding.emailEditTextLayout, View.TRANSLATION_X, 1000f, 0f).setDuration(150)
+        val passwordTextViewAnim = ObjectAnimator.ofFloat(binding.passwordTextView, View.TRANSLATION_X, -1000f, 0f).setDuration(150)
+        val passwordEditTextLayoutAnim = ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.TRANSLATION_X, 1000f, 0f).setDuration(150)
+        val loginAnim = ObjectAnimator.ofFloat(binding.Login, View.TRANSLATION_X, -1000f, 0f).setDuration(150)
+        val orloginAnim = ObjectAnimator.ofFloat(binding.orlogin, View.TRANSLATION_X, 1000f, 0f).setDuration(150)
+        val googleBtnAnim = ObjectAnimator.ofFloat(binding.googleBtn, View.TRANSLATION_X, -1000f, 0f).setDuration(150)
+
+        val titleFadeIn = ObjectAnimator.ofFloat(binding.titleTextView, View.ALPHA, 0f, 1f).setDuration(150)
+        val messageFadeIn = ObjectAnimator.ofFloat(binding.messageTextView, View.ALPHA, 0f, 1f).setDuration(150)
+        val emailTextViewFadeIn = ObjectAnimator.ofFloat(binding.emailTextView, View.ALPHA, 0f, 1f).setDuration(150)
+        val emailEditTextLayoutFadeIn = ObjectAnimator.ofFloat(binding.emailEditTextLayout, View.ALPHA, 0f, 1f).setDuration(150)
+        val passwordTextViewFadeIn = ObjectAnimator.ofFloat(binding.passwordTextView, View.ALPHA, 0f, 1f).setDuration(150)
+        val passwordEditTextLayoutFadeIn = ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 0f, 1f).setDuration(150)
+        val loginFadeIn = ObjectAnimator.ofFloat(binding.Login, View.ALPHA, 0f, 1f).setDuration(150)
+        val orloginFadeIn = ObjectAnimator.ofFloat(binding.orlogin, View.ALPHA, 0f, 1f).setDuration(150)
+        val googleBtnFadeIn = ObjectAnimator.ofFloat(binding.googleBtn, View.ALPHA, 0f, 1f).setDuration(150)
 
         AnimatorSet().apply {
             playSequentially(
-                title,
-                message,
-                emailTextView,
-                emailEditTextLayout,
-                passwordTextView,
-                passwordEditTextLayout,
-                login,
-                orlogin,
-                googleBtn
+                AnimatorSet().apply { playTogether(titleAnim, titleFadeIn) },
+                AnimatorSet().apply { playTogether(messageAnim, messageFadeIn) },
+                AnimatorSet().apply { playTogether(emailTextViewAnim, emailTextViewFadeIn) },
+                AnimatorSet().apply { playTogether(emailEditTextLayoutAnim, emailEditTextLayoutFadeIn) },
+                AnimatorSet().apply { playTogether(passwordTextViewAnim, passwordTextViewFadeIn) },
+                AnimatorSet().apply { playTogether(passwordEditTextLayoutAnim, passwordEditTextLayoutFadeIn) },
+                AnimatorSet().apply { playTogether(loginAnim, loginFadeIn) },
+                AnimatorSet().apply { playTogether(orloginAnim, orloginFadeIn) },
+                AnimatorSet().apply { playTogether(googleBtnAnim, googleBtnFadeIn) }
             )
             startDelay = 100
         }.start()
+
+        imageViewAnim.start()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -176,27 +174,6 @@ class LoginUser : AppCompatActivity() {
                 binding.progressBarLogin.visibility = View.GONE
                 Toast.makeText(this, exception.localizedMessage, Toast.LENGTH_LONG).show()
             }
-
-        vmsignin.message.observe(this) { message ->
-            if (message == "200") {
-                val builder = AlertDialog.Builder(this)
-                builder.setTitle(R.string.info)
-                builder.setMessage(R.string.validate_login_success)
-                builder.setIcon(R.drawable.ic_baseline_check_green_24)
-                val alertDialog: AlertDialog = builder.create()
-                alertDialog.setCancelable(false)
-                alertDialog.show()
-                Handler(Looper.getMainLooper()).postDelayed({
-                    alertDialog.dismiss()
-                    val intent = Intent(this, MainActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(intent)
-                    finish()
-                }, 2000)
-            }
-        }
-
     }
 
     private fun showAlertDialog(title: String, message: String) {
