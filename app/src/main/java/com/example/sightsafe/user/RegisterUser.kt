@@ -68,13 +68,10 @@ class RegisterUser : AppCompatActivity() {
     }
 
     private fun playAnimation() {
-        val imageViewAnim = ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
-            duration = 6000
-            repeatCount = ObjectAnimator.INFINITE
-            repeatMode = ObjectAnimator.REVERSE
-        }
+
 
     val titleAnim = ObjectAnimator.ofFloat(binding.titleTextView, View.TRANSLATION_X, -1000f, 0f).setDuration(150)
+        val messageAnim = ObjectAnimator.ofFloat(binding.messageTextViewRegis, View.TRANSLATION_X, 1000f, 0f).setDuration(150)
     val emailTextViewAnim = ObjectAnimator.ofFloat(binding.emailTextView, View.TRANSLATION_X, 1000f, 0f).setDuration(150)
     val nameEditTextLayoutAnim = ObjectAnimator.ofFloat(binding.nameEditTextLayout, View.TRANSLATION_X, -1000f, 0f).setDuration(150)
     val passwordTextViewAnim = ObjectAnimator.ofFloat(binding.passwordTextView, View.TRANSLATION_X, 1000f, 0f).setDuration(150)
@@ -84,6 +81,7 @@ class RegisterUser : AppCompatActivity() {
     val registerAnim = ObjectAnimator.ofFloat(binding.Register, View.TRANSLATION_X, 1000f, 0f).setDuration(150)
 
     val titleFadeIn = ObjectAnimator.ofFloat(binding.titleTextView, View.ALPHA, 0f, 1f).setDuration(150)
+    val messageFadeIn = ObjectAnimator.ofFloat(binding.messageTextViewRegis, View.ALPHA, 0f, 1f).setDuration(150)
     val emailTextViewFadeIn = ObjectAnimator.ofFloat(binding.emailTextView, View.ALPHA, 0f, 1f).setDuration(150)
     val nameEditTextLayoutFadeIn = ObjectAnimator.ofFloat(binding.nameEditTextLayout, View.ALPHA, 0f, 1f).setDuration(150)
     val passwordTextViewFadeIn = ObjectAnimator.ofFloat(binding.passwordTextView, View.ALPHA, 0f, 1f).setDuration(150)
@@ -95,6 +93,7 @@ class RegisterUser : AppCompatActivity() {
     AnimatorSet().apply {
         playSequentially(
             AnimatorSet().apply { playTogether(titleAnim, titleFadeIn) },
+            AnimatorSet().apply { playTogether(messageAnim, messageFadeIn) },
             AnimatorSet().apply { playTogether(emailTextViewAnim, emailTextViewFadeIn) },
             AnimatorSet().apply { playTogether(nameEditTextLayoutAnim, nameEditTextLayoutFadeIn) },
             AnimatorSet().apply { playTogether(passwordTextViewAnim, passwordTextViewFadeIn) },
@@ -106,7 +105,6 @@ class RegisterUser : AppCompatActivity() {
         startDelay = 100
     }.start()
 
-    imageViewAnim.start()
 }
 
 

@@ -36,11 +36,27 @@
         tools:alpha="100" />
 
     <TextView
+        android:id="@+id/messageTextViewRegis"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:alpha="0"
+        android:text="Welcome to SightSafe! Please register to your account."
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        tools:alpha="100" />
+
+    <TextView
         android:id="@+id/emailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="50dp"
         android:alpha="0"
         android:text="Email"
         android:textColor="@color/black"
@@ -151,6 +167,7 @@
         android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_button"
         android:alpha="0"
+        android:textSize="18sp"
         android:backgroundTint="@color/navy"
         android:text="Register"
         app:layout_constraintEnd_toEndOf="parent"

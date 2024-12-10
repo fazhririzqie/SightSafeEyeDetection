@@ -100,11 +100,6 @@ class LoginUser : AppCompatActivity() {
     }
 
     private fun playAnimation() {
-        val imageViewAnim = ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
-            duration = 6000
-            repeatCount = ObjectAnimator.INFINITE
-            repeatMode = ObjectAnimator.REVERSE
-        }
 
         val titleAnim = ObjectAnimator.ofFloat(binding.titleTextView, View.TRANSLATION_X, -1000f, 0f).setDuration(150)
         val messageAnim = ObjectAnimator.ofFloat(binding.messageTextView, View.TRANSLATION_X, 1000f, 0f).setDuration(150)
@@ -140,8 +135,6 @@ class LoginUser : AppCompatActivity() {
             )
             startDelay = 100
         }.start()
-
-        imageViewAnim.start()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

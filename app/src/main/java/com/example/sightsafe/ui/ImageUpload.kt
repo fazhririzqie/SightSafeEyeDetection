@@ -70,13 +70,14 @@ class ImageUpload : AppCompatActivity() {
             Log.d("Image URI", "showImage: $it")
             binding.selectedImage.visibility = View.VISIBLE
             binding.selectedImage.setImageURI(it)
-        } ?: showToast("Image URI is null")
+            binding.selectedImage.background = null // Menghapus background setelah gambar diupload
+        }
     }
 
     private fun uploadImage() {
 
         if (!isInternetAvailable(this)) {
-            showToast("Internet tidak menyala")
+            showToast("Please turn on your internet connection")
             return
         }
 
@@ -88,6 +89,8 @@ class ImageUpload : AppCompatActivity() {
             val multipartBody = MultipartBody.Part.createFormData(
                 "photo", imageFile.name, requestImageFile
             )
+
+            binding.progressBarResult.visibility = View.VISIBLE
 
             lifecycleScope.launch {
                 try {
@@ -107,6 +110,8 @@ class ImageUpload : AppCompatActivity() {
                         PreferencesHelper.incrementCheckCount(this@ImageUpload, email)
                     }
 
+                    binding.progressBarResult.visibility = View.GONE
+
                     // Tambahkan ini di dalam fungsi uploadImage() setelah berhasil mengunggah gambar
                     val intent = Intent(this@ImageUpload, ResultActivity::class.java).apply {
                         putExtra("imageUri", currentImageUri.toString())
@@ -120,10 +125,24 @@ class ImageUpload : AppCompatActivity() {
                         showToast(errorResponse.message.toString())
                     } catch (jsonException: JsonSyntaxException) {
                         showToast("Error: ${errorBody ?: "Please Try Again"}")
+                    } finally {
+                        // Hide the progress bar in case of an error
+                        binding.progressBarResult.visibility = View.GONE
                     }
                 }
             }
         } ?: showToast(getString(R.string.empty_image_warning))
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("currentImageUri", currentImageUri?.toString())
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        currentImageUri = savedInstanceState.getString("currentImageUri")?.let { Uri.parse(it) }
+        showImage()
     }
 
     private fun showToast(message: String) {

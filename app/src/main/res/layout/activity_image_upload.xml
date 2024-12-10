@@ -36,8 +36,10 @@
             android:id="@+id/selectedImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:background="@drawable/baseline_image_24" />
+
+
 
 
     </LinearLayout>
@@ -66,5 +68,14 @@
         android:text="@string/analyzeImage"
         app:cornerRadius="8dp" />
 
+
+    <ProgressBar
+        android:id="@+id/progressBarResult"
+        style="?android:attr/horizontalScrollViewStyle"
+        android:layout_width="243dp"
+        android:layout_height="169dp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        tools:visibility="visible" />
 
 </RelativeLayout>
