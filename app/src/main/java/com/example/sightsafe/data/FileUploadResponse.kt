@@ -25,6 +25,9 @@ data class Data(
     @field:SerializedName("isAboveThreshold")
     var isAboveThreshold: Boolean? = null,
 
+    @field:SerializedName("recommendation")
+    var recommendation: String? = null,
+
     @field:SerializedName("id")
     var id: String? = null
 )

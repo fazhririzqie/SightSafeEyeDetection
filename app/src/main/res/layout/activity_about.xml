@@ -26,7 +26,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/border">
 
             <ImageView
                 android:id="@+id/profile_image"
@@ -76,11 +78,14 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
         <!-- Tambahkan layout anggota tim kedua di bawahnya -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="30dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/border">
 
             <ImageView
                 android:id="@+id/profile_image2"
@@ -134,7 +139,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="30dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/border">
 
             <ImageView
                 android:id="@+id/profile_image3"
@@ -144,7 +151,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:src="@drawable/nimas" />
 
             <TextView
                 android:id="@+id/name3"
@@ -188,7 +195,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="30dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/border">
 
             <ImageView
                 android:id="@+id/profile_image4"
@@ -242,7 +251,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="30dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/border">
 
             <ImageView
                 android:id="@+id/profile_image5"
@@ -296,7 +307,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="30dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/border">
 
             <ImageView
                 android:id="@+id/profile_image6"

@@ -33,7 +33,6 @@ class ImageUpload : AppCompatActivity() {
     private var currentImageUri: Uri? = null
     private lateinit var firebaseAuth: FirebaseAuth
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityImageUploadBinding.inflate(layoutInflater)
@@ -42,12 +41,25 @@ class ImageUpload : AppCompatActivity() {
         // Initialize Firebase Auth
         firebaseAuth = FirebaseAuth.getInstance()
 
+        // Retrieve and save Firebase ID token
+        firebaseAuth.currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val idToken = task.result?.token
+                // Save the token to SharedPreferences
+                if (idToken != null) {
+                    PreferencesHelper.saveAuthToken(this, idToken)
+                }
+            } else {
+                // Handle error -> task.exception
+                showToast("Failed to retrieve token: ${task.exception?.message}")
+            }
+        }
+
         currentImageUri = intent.getStringExtra("imageUri")?.let { Uri.parse(it) }
         showImage()
 
         binding.browse.setOnClickListener { startGallery() }
         binding.analyze.setOnClickListener { uploadImage() }
-
     }
 
     private fun startGallery() {
@@ -75,7 +87,6 @@ class ImageUpload : AppCompatActivity() {
     }
 
     private fun uploadImage() {
-
         if (!isInternetAvailable(this)) {
             showToast("Please turn on your internet connection")
             return
@@ -94,7 +105,7 @@ class ImageUpload : AppCompatActivity() {
 
             lifecycleScope.launch {
                 try {
-                    val apiService = ApiConfig.getApiService()
+                    val apiService = ApiConfig.getApiService(this@ImageUpload)
                     val successResponse = apiService.uploadImage(multipartBody)
                     val resultText = if (successResponse.data.isAboveThreshold == true) {
                         showToast(successResponse.message.toString())
@@ -153,6 +164,4 @@ class ImageUpload : AppCompatActivity() {
         super.onDestroy()
         _binding = null
     }
-
-
 }
