@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Confident Score:"
+            android:text="Accuracy Score:"
             android:textColor="@android:color/black"
             android:textSize="16sp" />
 

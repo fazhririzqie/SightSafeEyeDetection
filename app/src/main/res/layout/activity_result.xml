@@ -73,6 +73,19 @@
             app:layout_constraintTop_toBottomOf="@+id/container">
 
             <TextView
+                android:id="@+id/tittleResultTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="24dp"
+                android:gravity="center"
+                android:lines="2"
+                android:text="Disease"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:id="@+id/resultTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,11 +99,38 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tittleScrollTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="24dp"
+                android:gravity="center"
+                android:lines="2"
+                android:text="Accuracy score"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ScoreTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="24dp"
+                android:gravity="center"
+                android:lines="2"
+                android:text="Disease"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
-                android:text="Handling"
+                android:text="Handling:"
+                android:textStyle="bold"
                 android:textSize="16sp"
                 android:layout_marginTop="20dp"/>
 
@@ -100,7 +140,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
-                android:text="Handling HandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandlingHandling "
+                android:text="Handling"
                 android:textSize="16sp"
                 android:layout_marginTop="20dp"/>
 

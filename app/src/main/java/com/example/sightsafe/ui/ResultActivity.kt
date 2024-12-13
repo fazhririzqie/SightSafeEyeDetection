@@ -29,11 +29,17 @@ class ResultActivity : AppCompatActivity() {
         val imageUri = intent.getStringExtra("imageUri")?.let { Uri.parse(it) }
         val resultText = intent.getStringExtra("resultText")
 
+        // Pisahkan resultText menjadi nama penyakit dan skor
+        val resultParts = resultText?.split(" with ") ?: listOf("Unknown", "0.0%")
+        val diseaseName = resultParts[0]
+        val confidenceScore = resultParts.getOrNull(1) ?: "0.0%"
+
         // Tampilkan data
         imageUri?.let {
             binding.selectedImage.setImageURI(it)
         }
-        binding.resultTextView.text = resultText
+        binding.resultTextView.text = diseaseName
+        binding.ScoreTextView.text = confidenceScore
 
         // Simpan data ke Firebase ketika tombol save diklik
         binding.save.setOnClickListener {

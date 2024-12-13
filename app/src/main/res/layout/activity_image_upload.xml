@@ -29,7 +29,8 @@
         android:layout_marginRight="10dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@drawable/dashed_border">
 
 
         <ImageView
